@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+/*Variables en CSS3 Vanilla*/
+:root {
+    --main-bg-color: #422261;
+    --face: #422261;
+    --calabaza-bg: #f8931f;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+a:hover {
+    color: #f8931f;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--main-bg-color);
+}
+
+.calabaza {
+    position: relative;
+    height: 300px;
+    width: 170px;
+    background-color: var(--calabaza-bg);
+    border-radius: 49% 51% 53% 47% / 35% 37% 63% 65%;
+    transform: rotate(14deg);
+    box-shadow:
+    -70px 12px 0px -2px #fbb03b, /*BS 1*/
+    -100px 4px 0px -1px #f8931f,   /*BS 2*/
+    50px -15px 0px  0px #f87700,  /*BS 3*/
+    70px -35px 0px -2px #f8931f;  /*BS 4*/
+}
+.tallo {
+    position: relative;
+  bottom: 180px;
+  background-color: #8cc63e;
+  left: 230px;
+  z-index: -1;
+  width: 95px;
+  height: 160px;
+  transform: rotate(30deg);
+  border-radius: 58% 42% 69% 31% / 44% 100% 0% 56% ;
+}
+.tallo::before {
+    content: '';
+    
+    position: absolute;
+    top: 0px;
+    left: 34px;
+    width: 100px;
+    height: 100px;
+    background-color: var(--main-bg-color);
+    clip-path: circle(50% at 50% 50%);
+  }
+.cara {
+    width: 75px;
+    height: 30px;
+    background-color: var(--face);
+    position: relative;
+    left: 60px;
+    bottom: 40px;
+    transform: rotate(10deg);
+    z-index: 1;
+    border-radius: 
+      100% 0% 50% 50% / 0% 0% 100% 100%;
+}
+  
+.cara::after {
+    content: '';
+    position: absolute;
+    background-color: var(--face);
+    top: -25px;
+    left: 120px;
+    width: 75px;
+    height: 30px;
+    transform: rotate(-20deg);
+    border-radius: 
+      100% 0% 50% 50% / 0% 0% 100% 100%;
+}
+  
+.cara::before {
+    content: '';
+    position: absolute;
+    top: 75px;
+    left: 15px;
+    background-color: var(--face);
+    transform: rotate(-10deg);
+    width: 200px;
+    height: 50px;
+    clip-path: polygon(0% 35%, 17% 2%, 21% 37%, 31% 17%, 36% 32%, 49% 6%, 63% 34%, 86% 8%, 85% 30%, 100% 30%, 94% 60%, 79% 98%, 66% 62%, 63% 94%, 53% 76%, 42% 100%, 31% 62%, 17% 96%, 14% 66%);
+}
+  
+.cara::before {
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}  
+  
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 12pt;
+    color: whitesmoke;
+    text-align: center;
+}
+
+footer h4 {
+    margin: 25px;
+}
+
+@keyframes pulse {
+    0% {transform: scale(1) rotate(-10deg);}
+    50% {transform: scale(1.1) rotate(-10deg);}
+    100% {transform: scale(1) rotate(-10deg);}
+}
